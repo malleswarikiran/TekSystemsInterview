@@ -2,7 +2,9 @@ package com.tek.interview.question;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,10 +16,20 @@ public class OrderTest {
   public void setUp() {
     underTest = new Order();
   }
+  
+  @After
+  public void tearDown() {
+    underTest = null;
+  }
 
-  @Test(expected=IllegalArgumentException.class)
+  @Test
   public void testAddThrowIllegalArgumentException() throws Exception{
-    underTest.add(null);
+    try{
+      underTest.add(null);
+      fail("Should throw IllegalArgumentException");
+    }catch (IllegalArgumentException illegalArgumentException){
+      assertEquals("Order is NULL", illegalArgumentException.getMessage());
+    }
   }
   
   @Test

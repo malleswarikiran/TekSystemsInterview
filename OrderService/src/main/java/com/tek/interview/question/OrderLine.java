@@ -15,7 +15,10 @@ public class OrderLine {
 			System.err.println("ERROR - Item is NULL");
 			throw new Exception("Item is NULL");
 		}
-		assert quantity > 0;
+		if(quantity <= 0){
+		  System.err.println("ERROR - Quantity is less than or equal to zero");
+          throw new Exception("Quantity is less than or equal to zero");
+		}
 		this.item = item;
 		this.quantity = quantity;
 	}

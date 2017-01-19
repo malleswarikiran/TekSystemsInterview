@@ -6,9 +6,9 @@ import java.util.Map;
 
 public class Calculator {
 	
-	private static String IMPORTED = "imported";
+	private static final String IMPORTED_LOWERCASE = "imported";
 
-	public static double rounding(double value, RoundingMode roundingMode) {
+	private double rounding(double value, RoundingMode roundingMode) {
 		return new BigDecimal(value).setScale(2, roundingMode).doubleValue();
 	}
 
@@ -38,7 +38,7 @@ public class Calculator {
 						double tax = 0;
 						Item item = r.get(i).getItem();
 						if (item.getDescription() != null && !item.getDescription().isEmpty() && item.getDescription().toLowerCase()
-								.contains(IMPORTED.toLowerCase())) {
+								.contains(IMPORTED_LOWERCASE)) {
 							tax = rounding(item.getPrice() * 0.15, RoundingMode.HALF_EVEN); // Extra 5% tax
 																		// on imported
 																		// items
