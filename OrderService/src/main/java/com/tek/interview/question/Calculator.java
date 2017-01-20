@@ -8,7 +8,7 @@ public class Calculator {
 	
 	private static final String IMPORTED_LOWERCASE = "imported";
 
-	private double rounding(double value, RoundingMode roundingMode) {
+	public double rounding(double value, RoundingMode roundingMode) {
 		return new BigDecimal(value).setScale(2, roundingMode).doubleValue();
 	}
 
