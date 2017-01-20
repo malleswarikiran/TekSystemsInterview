@@ -23,13 +23,16 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testRounding() {
-        underTest = new Calculator();
+    public void testRoundingHalfEven() {
         double value = 2.89753 * 0.15;
-        RoundingMode rm = RoundingMode.HALF_EVEN;
         double expected = 0.43d;
-        double actual = underTest.rounding(value, rm);
+        double actual = underTest.rounding(value, RoundingMode.HALF_EVEN);
         assertEquals(expected, actual, 0.0);
+    }
+    
+    @Test
+    public void testRoundingUp() {
+        //  TODO
     }
 
 }
