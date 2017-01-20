@@ -32,7 +32,10 @@ public class CalculatorTest {
     
     @Test
     public void testRoundingUp() {
-        //  TODO
+    	double value = 2.89753 * 0.10;
+        double expected = 0.29d;
+        double actual = underTest.rounding(value, RoundingMode.UP);
+        assertEquals(expected, actual, 0.0);
     }
 
 }
